@@ -1,0 +1,44 @@
+<div>
+  <a href="#schools/new" class="btn btn-success"><span class="glyphicon glyphicon-user"></span> New School</a>
+</div>
+<br />
+<div>
+  <div class="panel panel-default">
+    <div class="panel-heading">Schools List</div>
+    <div class="panel-body">
+      <p>
+        The schools can be edited and deleted from the list.
+      </p>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <th>School ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Gender Type</th>
+        <th>Email</th>
+        <th colspan="3">Controlls</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="school in schoolsList">
+          <td ng-bind="school.schoolId"></td>
+          <td ng-bind="school.name"></td>
+          <td ng-bind="school.address"></td>
+          <td ng-bind="school.genderType"></td>
+          <td ng-bind="school.email"></td>
+          <td>
+            <a href="#schools/{{ school.schoolId }}" class="btn btn-sm btn-info">Info</a>
+          </td>
+          <td>
+            <a href="#schools/{{ school.schoolId }}/edit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-danger" ng-click="deleteSchool(school.schoolId)">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

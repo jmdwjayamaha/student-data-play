@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Data CRUD</title>
+	<meta charset="UTF-8">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-resource.min.js"></script>
+	
+	<script src="js/app.js"></script>
+	<script src="js/services/localStorageService.js"></script>
+	<script src="js/services/studentResource.js"></script>
+	<script src="js/services/objTypeFilterService.js"></script>
+	<script src="js/controllers/navigationController.js"></script>
+	<script src="js/controllers/studentControllers.js"></script>
+	<script src="js/controllers/schoolControllers.js"></script>
+</head>
+<body>
+  
+  <div ng-app="studentApp" class="container theme-showcase">
+    <br />
+    
+    <nav class="navbar navbar-default" ng-controller="NavigationController">
+    	<div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#/">Student Data</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li ng-class="{ students : 'active'} [currentNav]">
+              <a href="#/students" ng-click="selectStudents()">Student</a>
+            </li>
+            <li ng-class="{ schools : 'active'} [currentNav]">
+              <a href="#/schools" ng-click="selectSchools()">School</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <br />
+    <div ng-view>
+      <!-- Content loading area -->
+    </div>
+  </div>
+  
+</body>
+</html>
