@@ -11,15 +11,15 @@ angular
     
     function pushItem(key, value) {
         localStorage.setItem(key, value);
-    };
+    }
   
     function removeItem(key) {
         localStorage.removeItem(key);
-    };
+    }
   
     function getItem(key) {
         return localStorage.getItem(key);
-    }; 
+    }
   
     function retrieveData() {
         var resultsArray = [];
@@ -29,5 +29,5 @@ angular
         }
       
         return resultsArray;
-    };
+    }
 });
