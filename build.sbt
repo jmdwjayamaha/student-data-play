@@ -1,3 +1,5 @@
+import com.github.play2war.plugin._
+
 name := """playlearn1"""
 
 version := "1.0"
@@ -5,6 +7,10 @@ version := "1.0"
 lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
 
 scalaVersion := "2.11.6"
+
+Play2WarPlugin.play2WarSettings
+
+Play2WarKeys.servletVersion := "3.1"
 
 libraryDependencies ++= Seq(
   javaJdbc,
