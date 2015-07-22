@@ -1,4 +1,14 @@
-This is your new Play application
+README of the test application
 =================================
 
-This file will be packaged with your application, when using `activator dist`.
+Start the application in dev mode:
+	activator run
+
+Start the application in debug mode:
+	activator -jvm-debug 9999 run
+	
+Production packaging of the application:
+	activator dist
+
+Create the web archive deployment module:
+	activator war
