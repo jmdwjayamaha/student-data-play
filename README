@@ -3,6 +3,9 @@ README of the play application
 
 Start the application in dev mode:
 	activator run
+	
+Start the application without dev mode:
+	activator start
 
 Start the application in debug mode:
 	activator -jvm-debug 9999 run
