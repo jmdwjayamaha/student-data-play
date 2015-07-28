@@ -155,6 +155,7 @@ public class StudentController extends Controller {
                 Student student = objMapper.readValue(jsonBody.traverse(), Student.class);
                 Ebean.save(student);
                 logger.debug("Student Saved: " + student.getStudentNumber());
+                jsonBody = objMapper.valueToTree(student);
                 result = ok(jsonBody);
 
             } catch (JsonParseException | JsonMappingException e) {
