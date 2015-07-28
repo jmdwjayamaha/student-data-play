@@ -15,3 +15,6 @@ Production packaging of the application:
 
 Create the web archive deployment module:
 	activator war
+
+Simple execution of the unit tests:
+    activator test

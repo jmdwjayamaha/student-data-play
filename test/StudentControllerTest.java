@@ -27,19 +27,26 @@ public class StudentControllerTest {
 
     private static final long REQUEST_TIMEOUT = 10000;
 
+    private static final int PORT = 3333;
+
     @Test
-    public void list() {
-        running(testServer(3333), new Runnable() {
+    public void listStudentsTest() {
+
+        Logger.debug("Running Test: listStudentsTest");
+        running(testServer(PORT), new Runnable() {
 
             public void run() {
-                assertEquals(WS.url("http://localhost:3333/students").get().get(REQUEST_TIMEOUT).getStatus(), OK);
+                assertEquals(WS.url("http://localhost:" + PORT + "/students").get().get(REQUEST_TIMEOUT).getStatus(),
+                        OK);
             }
         });
     }
 
     @Test
-    public void save() {
-        running(testServer(3333), new Runnable() {
+    public void createStudentTest() {
+
+        Logger.debug("Running Test: createStudentTest");
+        running(testServer(PORT), new Runnable() {
 
             public void run() {
                 final Student student = new Student();
@@ -51,7 +58,8 @@ public class StudentControllerTest {
 
                 ObjectMapper mapper = new ObjectMapper();
                 final JsonNode studentJson = mapper.valueToTree(student);
-                WSResponse response = WS.url("http://localhost:3333/students").post(studentJson).get(REQUEST_TIMEOUT);
+                WSResponse response = WS.url("http://localhost:" + PORT + "/students").post(studentJson)
+                        .get(REQUEST_TIMEOUT);
 
                 assertEquals(response.getStatus(), OK);
 
@@ -68,4 +76,5 @@ public class StudentControllerTest {
             }
         });
     }
+
 }
