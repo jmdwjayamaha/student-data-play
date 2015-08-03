@@ -1,22 +1,28 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static play.mvc.Http.Status.OK;
+import static play.mvc.Http.Status.REQUEST_TIMEOUT;
+import static play.test.Helpers.HTMLUNIT;
+import static play.test.Helpers.fakeApplication;
+import static play.test.Helpers.inMemoryDatabase;
+import static play.test.Helpers.running;
+import static play.test.Helpers.testServer;
+
 import java.io.IOException;
-import java.util.List;
 
 import models.Student;
 
-import org.junit.*;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Test;
 
 import play.Logger;
-import play.test.*;
-import play.libs.F.*;
+import play.libs.F.Callback;
 import play.libs.ws.WS;
 import play.libs.ws.WSResponse;
-import static play.mvc.Http.Status.OK;
-import static play.test.Helpers.*;
-import static org.junit.Assert.*;
+import play.test.TestBrowser;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class IntegrationTest {

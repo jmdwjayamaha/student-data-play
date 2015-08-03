@@ -2,6 +2,7 @@ package controllers;
 
 import static akka.pattern.Patterns.ask;
 
+import util.ActorUtils;
 import java.io.IOException;
 import java.util.List;
 
@@ -27,10 +28,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class StudentController extends Controller {
 
     private static final ALogger logger = Logger.of(StudentController.class);
-    
-    static ActorSystem actorSystem = ActorSystem.create("play");
+
+    static ActorSystem actorSystem;
 
     static {
+        actorSystem = ActorUtils.getActorSystemInstance();
         actorSystem.actorOf(Props.create(ListStudentsActor.class), "ListStudentsActor");
     }
 
