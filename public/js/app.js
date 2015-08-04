@@ -49,5 +49,5 @@ function setupRoutes($routeProvider) {
 }
 	
 function setAuthorizationHeader($http) {
-	$http.defaults.headers.common.Authorization = 'Token 123';
+	$http.defaults.headers.common.Authorization = 'Basic MTIzOjEyMw==';
 }
