@@ -23,7 +23,6 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import common.PaginationData;
 
 public class StudentController extends SecuredController {
@@ -87,8 +86,10 @@ public class StudentController extends SecuredController {
     /**
      * Retrieve the entire list of students.
      *
-     * @param size the size
-     * @param page the page
+     * @param size
+     *            the size
+     * @param page
+     *            the page
      * @return A Promise of a Future to all the students in JSON format
      */
     @SuppressWarnings("unchecked")

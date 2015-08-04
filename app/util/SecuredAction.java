@@ -19,6 +19,9 @@ public class SecuredAction extends Action.Simple {
     /** The Constant HEADER_AUTH_PARAM. */
     public static final String HEADER_AUTH_PARAM = "Authorization";
 
+    /* (non-Javadoc)
+     * @see play.mvc.Action#call(play.mvc.Http.Context)
+     */
     @Override
     public Promise<Result> call(Context ctx) throws Throwable {
 
