@@ -7,7 +7,7 @@ GET     /                           controllers.Application.index()
 
 # Students
 GET     /students/:id               @controllers.StudentController.getById(id)
-GET     /students                   @controllers.StudentController.list()
+GET     /students                   @controllers.StudentController.list(size: Int ?= 0, page: Int ?= 0)
 POST    /students                   @controllers.StudentController.save()
 PUT     /students/:id               @controllers.StudentController.update(id)
 DELETE  /students/:id               @controllers.StudentController.delete(id)

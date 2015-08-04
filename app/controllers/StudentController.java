@@ -2,7 +2,6 @@ package controllers;
 
 import static akka.pattern.Patterns.ask;
 
-import util.ActorUtils;
 import java.io.IOException;
 import java.util.List;
 
@@ -12,9 +11,9 @@ import models.Student;
 import play.Logger;
 import play.Logger.ALogger;
 import play.libs.F.Promise;
-import play.mvc.Controller;
 import play.mvc.Result;
 import services.ListStudentsActor;
+import util.ActorUtils;
 import akka.actor.ActorSelection;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
@@ -25,7 +24,9 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class StudentController extends Controller {
+import common.PaginationData;
+
+public class StudentController extends SecuredController {
 
     private static final ALogger logger = Logger.of(StudentController.class);
 
@@ -85,15 +86,18 @@ public class StudentController extends Controller {
 
     /**
      * Retrieve the entire list of students.
-     * 
+     *
+     * @param size the size
+     * @param page the page
      * @return A Promise of a Future to all the students in JSON format
      */
     @SuppressWarnings("unchecked")
-    public Promise<Result> list() {
+    public Promise<Result> list(int size, int page) {
 
         ActorSelection listStudentsActor = actorSystem.actorSelection("user/ListStudentsActor");
+        PaginationData paginateData = new PaginationData(size, page);
 
-        return Promise.wrap(ask(listStudentsActor, "", 30000)).map(r -> {
+        return Promise.wrap(ask(listStudentsActor, paginateData, 30000)).map(r -> {
             final JsonNode resultNode = objMapper.valueToTree((List<Student>) r);
             return ok(resultNode);
         });
