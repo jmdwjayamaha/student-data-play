@@ -3,7 +3,8 @@
  */
 angular
   	.module("studentApp", ["ngRoute", "ngResource"])
-	.config(["$routeProvider", setupRoutes]);
+	.config(["$routeProvider", setupRoutes])
+	.run(setAuthorizationHeader);
 
 // Route configurations
 function setupRoutes($routeProvider) {
@@ -45,4 +46,8 @@ function setupRoutes($routeProvider) {
    .otherwise({
      	redirectTo: "/students"
    });
+}
+	
+function setAuthorizationHeader($http) {
+	$http.defaults.headers.common.Authorization = 'Token 123';
 }
