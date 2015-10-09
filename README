@@ -1,20 +1,25 @@
 README of the play application
 =================================
 
-Start the application in dev mode:
-	activator run
+Pre-requisites: 
+	Play framework (activator)
 	
-Start the application without dev mode:
-	activator start
+Steps and different methodologies to run the project.
 
-Start the application in debug mode:
-	activator -jvm-debug 9999 run
+	Start the application in dev mode:
+		activator run
+		
+	Start the application without dev mode:
+		activator start
 	
-Production packaging of the application:
-	activator dist
-
-Create the web archive deployment module:
-	activator war
-
-Simple execution of the unit tests:
-    activator test
+	Start the application in debug mode:
+		activator -jvm-debug 9999 run
+		
+	Production packaging of the application:
+		activator dist
+	
+	Create the web archive deployment module:
+		activator war
+	
+	Simple execution of the unit tests:
+	    activator test
